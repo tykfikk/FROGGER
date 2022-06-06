@@ -37,7 +37,7 @@ while running:
     elif ruch_zaby[pygame.K_UP] or ruch_zaby[pygame.K_w]:
         postac_y -= postac_liczba_pikseli
 
-    pygame.time.delay(60)
+    pygame.time.delay(100)
 
     okno.blit(tlo_gry, [0, 0])
     okno.blit(postac, [postac_x, postac_y])
