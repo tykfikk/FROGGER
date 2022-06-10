@@ -15,8 +15,10 @@ pygame.display.set_caption("Żabber")
 tlo_gry = pygame.image.load("plansza1.png")
 postac = pygame.image.load("zaba_postac1.png").convert_alpha()
 autko = pygame.image.load("auto1.png").convert_alpha()
+autko_odwrocone = pygame.image.load("auto2.png").convert_alpha()
 klody = pygame.image.load("kloda1.png").convert_alpha()
 zolwiki = pygame.image.load("zolwie1.png").convert_alpha()
+zolwiki_odwrocone = pygame.image.load("zolwie2.png").convert_alpha()
 
 
 class Zaba():
@@ -139,14 +141,14 @@ while running:
     okno.blit(klody, [kloda1.x_kloda, kloda1.y_kloda])
     okno.blit(klody, [kloda2.x_kloda, kloda2.y_kloda])
     okno.blit(klody, [kloda3.x_kloda, kloda3.y_kloda])   
-    okno.blit(zolwiki, [zolwie1.x_zolw, zolwie1.y_zolw])
+    okno.blit(zolwiki_odwrocone, [zolwie1.x_zolw, zolwie1.y_zolw])
     okno.blit(zolwiki, [zolwie2.x_zolw, zolwie2.y_zolw])
     okno.blit(postac, [zabka.x_zaba, zabka.y_zaba])
     okno.blit(autko, [auto1.x_auto, auto1.y_auto])
     okno.blit(autko, [auto2.x_auto, auto2.y_auto])
-    okno.blit(autko, [auto3.x_auto, auto3.y_auto])
+    okno.blit(autko_odwrocone, [auto3.x_auto, auto3.y_auto])
     okno.blit(autko, [auto4.x_auto, auto4.y_auto])
-    okno.blit(autko, [auto5.x_auto, auto5.y_auto])
+    okno.blit(autko_odwrocone, [auto5.x_auto, auto5.y_auto])
     pygame.display.update()
 
 
