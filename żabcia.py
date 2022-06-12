@@ -2,7 +2,7 @@ import pygame
 import sys
 import os
 from pygame import rect
-from random import randint
+
 
 
 
@@ -22,7 +22,6 @@ klody = pygame.image.load("kloda1.png").convert_alpha()
 zolwiki = pygame.image.load("zolwie1.png").convert_alpha()
 zolwiki_odwrocone = pygame.image.load("zolwie2.png").convert_alpha()
 zaba_win = pygame.image.load("zaba_win3.png").convert_alpha()
-zaba_ups = pygame.image.load("zaba_ups4.png").convert_alpha()
 zaba_GO = pygame.image.load("zaba_GameOver2.png").convert_alpha()
 
 ### klasy (postać i obiekty) ###
@@ -197,7 +196,6 @@ while running:
             running = False
 
     czas = zegar.tick(10)
-
     zabka.ruch_postaci()
     auto1.ruch_auta()
     auto2.ruch_auta()
@@ -267,5 +265,4 @@ while running:
 
 
 pygame.quit() 
-
 
