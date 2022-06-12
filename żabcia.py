@@ -179,6 +179,7 @@ for i in range (3):
         elif licznik_zyc==0:
             okno.blit(liczba_zyc1, [-10,-10])
             okno.blit(liczba_zyc0, [10,0])
+            print("przegrałeś")
 
 
 
