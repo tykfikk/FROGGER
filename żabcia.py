@@ -89,7 +89,7 @@ class Kloda():
         self.kloda_szerokosc = 240
         self.szybkosc = szybkosc
 
-    def ruch_klody(self):
+    def ruch_klody(self): 
         self.x_kloda -= self.szybkosc
         if self.x_kloda<-120:
             self.x_kloda = 600 
