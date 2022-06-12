@@ -82,7 +82,7 @@ class Kloda():
         self.kloda_szerokosc = 240
         self.szybkosc = szybkosc
 
-    def ruch_klody(self):
+    def ruch_klody(self): 
         self.x_kloda -= self.szybkosc
         if self.x_kloda<-120:
             self.x_kloda = 600 
@@ -157,6 +157,22 @@ def zaba_na_zolwiach_lewo(obiekt,dana_szybkosc):
 #         return True
 #     else:
 #         return False 
+
+###trzeba zwoda polaczyc
+licznik_zyc=3
+for i in range (3):
+    if wykryj_kolizje or zaba_w_wodzie:
+        licznik_zyc-=1
+        if licznik_zyc==2:
+            okno.blit(liczba_zyc3, [-10,-10]
+            okno.blit(liczba_zyc2, [10, 0])
+        elif licznik_zyc==1:
+            okno.blit(liczba_zyc2,[-10,-10])
+            okno.blit(liczba_zyc1, [10,0])
+        elif licznik_zyc==0:
+            okno.blit(liczba_zyc1, [-10,-10])
+            okno.blit(liczba_zyc0, [10,0])
+            print("przegrałeś")
 
 
 
