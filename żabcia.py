@@ -21,6 +21,10 @@ autko_odwrocone = pygame.image.load("auto2.png").convert_alpha()
 klody = pygame.image.load("kloda1.png").convert_alpha()
 zolwiki = pygame.image.load("zolwie1.png").convert_alpha()
 zolwiki_odwrocone = pygame.image.load("zolwie2.png").convert_alpha()
+liczba_zyc0 = pygame.image.load("serca0.png").convert_alpha()
+liczba_zyc1 = pygame.image.load("serca1.png").convert_alpha()
+liczba_zyc2 = pygame.image.load("serca2.png").convert_alpha()
+liczba_zyc3 = pygame.image.load("serca3.png").convert_alpha()
 
 
 class Lisc():
