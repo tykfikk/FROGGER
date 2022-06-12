@@ -2,7 +2,6 @@ import pygame
 import sys
 import os
 from pygame import rect
-from PIL import ImageOps, ImageFilter
 
 
 
@@ -27,12 +26,6 @@ liczba_zyc2 = pygame.image.load("serca2.png").convert_alpha()
 liczba_zyc3 = pygame.image.load("serca3.png").convert_alpha()
 
 
-class Lisc():
-    def __init__(self,x):
-        self.x_lisc = x
-        self.y_lisc = 100
-        self.lisc_szerokosc = 45
-        self.lisc_wysokosc = 50
 
 class Zaba():
     def __init__(self):
