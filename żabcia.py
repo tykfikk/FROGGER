@@ -119,10 +119,26 @@ def wykryj_kolizje(obiekt):
     if zabka.x_zaba >= obiekt.x_auto and (zabka.x_zaba+zabka.zaba_szerokosc)<=(obiekt.x_auto+obiekt.auto_szerokosc) and zabka.y_zaba<=obiekt.y_auto and (zabka.y_zaba-zabka.zaba_wysokosc)>=(obiekt.y_auto-obiekt.auto_wysokosc):
         return True
 
+# def kolizja(obiekt):
+#     if wykryj_kolizje(obiekt)==True:
+#         zabka.x_zaba = 280
+#         zabka.y_zaba = 560
 def kolizja(obiekt):
+    liczba_smierci = 0
     if wykryj_kolizje(obiekt)==True:
-        zabka.x_zaba = 280
-        zabka.y_zaba = 560
+        liczba_smierci = liczba_smierci + 1
+        if liczba_smierci <=2:
+            print(liczba_smierci)
+            okno.blit(zaba_ups, [0, 0])
+            pygame.display.update()
+            pygame.time.delay(2500)
+            zabka.x_zaba = 280
+            zabka.y_zaba = 560
+        elif liczba_smierci == 3:
+            print(liczba_smierci)
+            okno.blit(zaba_GO, [0, 0])
+            pygame.display.update()
+            pygame.time.delay(2500)
 
 def wykryj_klody(obiekt):
     if zabka.x_zaba >= obiekt.x_kloda and (zabka.x_zaba+zabka.zaba_szerokosc)<=(obiekt.x_kloda+obiekt.kloda_szerokosc) and zabka.y_zaba<=obiekt.y_kloda and (zabka.y_zaba-zabka.zaba_wysokosc)>=(obiekt.y_kloda-obiekt.kloda_wysokosc):
