@@ -1,4 +1,3 @@
-
 import pygame
 import sys
 import os
@@ -24,7 +23,7 @@ zolwiki = pygame.image.load("zolwie1.png").convert_alpha()
 zolwiki_odwrocone = pygame.image.load("zolwie2.png").convert_alpha()
 zaba_win = pygame.image.load("zaba_win3.png").convert_alpha()
 zaba_ups = pygame.image.load("zaba_ups4.png").convert_alpha()
-zaba_GO = pygame.image.load("zaba_GameOver2.png").convert_alpha
+zaba_GO = pygame.image.load("zaba_GameOver2.png").convert_alpha()
 liczba_zyc0 = pygame.image.load("serca0.png").convert_alpha()
 liczba_zyc1 = pygame.image.load("serca1.png").convert_alpha()
 liczba_zyc2 = pygame.image.load("serca2.png").convert_alpha()
@@ -41,7 +40,7 @@ class Zaba():
         self.zaba_szerokosc = 40
         self.zaba_wysokosc = 40
         self.zycie = 1
-   
+
 
     def ruch_postaci(self):
         ruch_zaby = pygame.key.get_pressed()
@@ -55,7 +54,7 @@ class Zaba():
             zabka.y_zaba -= postac_liczba_pikseli
 
     def zaba_wygrana(self):
-        if self.y_zaba <79 and self.x_zaba <=600:
+        if self.y_zaba <79:
             okno.blit(zaba_win, [0,0])
             pygame.display.update()
             pygame.time.delay(2500)
@@ -76,7 +75,7 @@ class Auto():
     def ruch_auta(self):
         self.x_auto -= self.szybkosc
         if self.x_auto<-120:
-            self.x_auto = 600 
+            self.x_auto = 600
             self.y_auto = self.y_auto
 
     def ruch_auta_prawo(self):
@@ -98,7 +97,7 @@ class Kloda():
     def ruch_klody(self):
         self.x_kloda -= self.szybkosc
         if self.x_kloda<-120:
-            self.x_kloda = 600 
+            self.x_kloda = 600
             self.y_kloda = self.y_kloda
 
     def ruch_klody_prawo(self):
@@ -119,14 +118,14 @@ class Zolwie():
     def ruch_zolwia(self):
         self.x_zolw -= self.szybkosc
         if self.x_zolw<-120:
-            self.x_zolw = 600 
+            self.x_zolw = 600
             self.y_zolw = self.y_zolw
 
     def ruch_zolwia_prawo(self):
         self.x_zolw += self.szybkosc
         if self.x_zolw>720:
             self.x_zolw = -120
-            self.y_zolw = self.y_zolw 
+            self.y_zolw = self.y_zolw
 
 def wykryj_kolizje(obiekt):
     if zabka.x_zaba >= obiekt.x_auto and (zabka.x_zaba+zabka.zaba_szerokosc)<=(obiekt.x_auto+obiekt.auto_szerokosc) and zabka.y_zaba<=obiekt.y_auto and (zabka.y_zaba-zabka.zaba_wysokosc)>=(obiekt.y_auto-obiekt.auto_wysokosc):
@@ -134,9 +133,11 @@ def wykryj_kolizje(obiekt):
 
 def kolizja(obiekt):
     if wykryj_kolizje(obiekt)==True:
+        okno.blit(zaba_GO, [0, 0])
+        pygame.display.update()
+        pygame.time.delay(2500)
         zabka.x_zaba = 280
         zabka.y_zaba = 560
-        liczba_smierci+=1
 
 def wykryj_klody(obiekt):
     if zabka.x_zaba >= obiekt.x_kloda and (zabka.x_zaba+zabka.zaba_szerokosc)<=(obiekt.x_kloda+obiekt.kloda_szerokosc) and zabka.y_zaba<=obiekt.y_kloda and (zabka.y_zaba-zabka.zaba_wysokosc)>=(obiekt.y_kloda-obiekt.kloda_wysokosc):
@@ -169,22 +170,19 @@ def zaba_na_wodzie():
     if zabka.x_zaba >= 0 and (zabka.x_zaba+zabka.zaba_szerokosc)<=600 and zabka.y_zaba<=280 and (zabka.y_zaba-zabka.zaba_wysokosc)>=80:
         return True
 
-def win():
-    if zabka.y_zaba<=79:
-        return True
 
-def liczba_serduszek():
-    if liczba_smierci==0:
-        okno.blit(liczba_zyc3, [10,0])
-    elif liczba_smierci==1:
-        okno.blit(liczba_zyc2, [10,0])
-    elif liczba_smierci==2:
-        okno.blit(liczba_zyc1, [10,0])
-    else:
-        okno.blit(liczba_zyc0, [10,0])
-        pygame.display.update()
-    
-    
+# def liczba_serduszek():
+#     if liczba_smierci==0:
+#         okno.blit(liczba_zyc3, [10,0])
+#     elif liczba_smierci==1:
+#         okno.blit(liczba_zyc2, [10,0])
+#     elif liczba_smierci==2:
+#         okno.blit(liczba_zyc1, [10,0])
+#     else:
+#         okno.blit(liczba_zyc0, [10,0])
+#         pygame.display.update()
+
+
 
 zabka=Zaba()
 auto1=Auto(10,560,520)
@@ -215,7 +213,7 @@ while running:
     czas = zegar.tick(10)
 
     if liczba_smierci<3:
-        liczba_serduszek()
+        # liczba_serduszek()
         zabka.ruch_postaci()
         zabka.zaba_wygrana()
         auto1.ruch_auta()
@@ -251,20 +249,24 @@ while running:
                 zaba_na_zolwiach_lewo(zolwie2,13)
                 zaba_na_zolwiach_prawo(zolwie3,8)
                 zaba_na_zolwiach_lewo(zolwie4,9)
-            else: 
-                # liczba_smierci+=1
-    # if win()==True:
-                print("hura!")
-    
+            else:
+                okno.blit(zaba_GO, [0, 0])
+                pygame.display.update()
+                pygame.time.delay(2500)
+                zabka.x_zaba = 280
+                zabka.y_zaba = 560
 
- 
+
+
+
     # pygame.time.delay(60)
 
     okno.blit(tlo_gry, [0, 0])
+    okno.blit(liczba_zyc3, [10, 0])
     okno.blit(klody, [kloda1.x_kloda, kloda1.y_kloda])
     okno.blit(klody, [kloda2.x_kloda, kloda2.y_kloda])
-    okno.blit(klody, [kloda3.x_kloda, kloda3.y_kloda])  
-    okno.blit(klody, [kloda4.x_kloda, kloda4.y_kloda]) 
+    okno.blit(klody, [kloda3.x_kloda, kloda3.y_kloda])
+    okno.blit(klody, [kloda4.x_kloda, kloda4.y_kloda])
     okno.blit(zolwiki_odwrocone, [zolwie1.x_zolw, zolwie1.y_zolw])
     okno.blit(zolwiki, [zolwie2.x_zolw, zolwie2.y_zolw])
     okno.blit(zolwiki_odwrocone, [zolwie3.x_zolw, zolwie3.y_zolw])
@@ -279,6 +281,4 @@ while running:
     pygame.display.update()
 
 
-pygame.quit() 
-
-
+pygame.quit()
